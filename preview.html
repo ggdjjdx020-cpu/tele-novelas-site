@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Βιβλιοθήκη Τηλενουβέλων</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: white;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #0f0f0f, #1c1c1c);
+    border-bottom: 2px solid #00ff99;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.counter {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #00ff99;
+}
+
+/* SECTIONS */
+.section {
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 22px;
+    border-left: 5px solid #00ff99;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: #141414;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,255,153,0.3);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* TITLE */
+.card-title {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.more-btn {
+    margin-top: 20px;
+    padding: 12px 18px;
+    background: #00ff99;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.more-btn:hover {
+    background: #00cc77;
+    transform: scale(1.05);
+}
+
+/* ACTIVE BUTTON CLICK EFFECT */
+.more-btn:active {
+    background: #ffcc00;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Καλώς ήρθατε στη Βιβλιοθήκη Τηλενουβέλων</h1>
+    <div class="counter">
+        Συνολικές Σειρές: <span id="count">0</span> / 90
+    </div>
+    <p>Μεγάλη συλλογή με μεταγλωττισμένες σειρές</p>
+</header>
+
+<!-- COMPLETED -->
+<div class="section">
+    <div class="section-title">ΟΛΟΚΛΗΡΩΜΕΝΕΣ ΣΕΙΡΕΣ</div>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Κατάλινα+Σεμπάστιαν">
+            <div class="card-title">Κατάλινα & Σεμπάστιαν</div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Θρίαμβος+Αγάπης">
+            <div class="card-title">Ο Θρίαμβος της Αγάπης</div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Άντζελα">
+            <div class="card-title">Άντζελα, ο Άγγελος του Έρωτα</div>
+        </div>
+
+    </div>
+</div>
+
+<!-- IN PROGRESS -->
+<div class="section">
+    <div class="section-title">ΣΕΙΡΕΣ ΣΕ ΕΞΕΛΙΞΗ</div>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Aurora">
+            <div class="card-title">Aurora</div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Παλόμα+Λορέντζο">
+            <div class="card-title">Παλόμα & Λορέντζο</div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Μελίτα">
+            <div class="card-title">Μελίτα το Φλογερό Κορίτσι</div>
+        </div>
+
+    </div>
+
+    <button class="more-btn" onclick="changeColor(this)">
+        ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ
+    </button>
+</div>
+
+<script>
+// COUNTER
+let count = 0;
+const max = 90;
+
+setInterval(() => {
+    if (count < max) {
+        count++;
+        document.getElementById("count").innerText = count;
+    }
+}, 1000);
+
+// BUTTON COLOR CHANGE
+function changeColor(btn) {
+    btn.style.background = btn.style.background === "red" ? "#00ff99" : "red";
+}
+</script>
+
+</body>
+</html>
